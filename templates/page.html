@@ -5,18 +5,18 @@
 {% block content %}
 
     <h2><a href="{{ url_for('comic', comic_id=comic.identifier) }}">{{ comic.name }}</a>
-         » {{ page }}</h2>
+         » {{ page.name or page.id }}</h2>
     
     <div class="page-image">
-        <img src="{{ url_for(comic.identifier+'.static', filename=page+'.'+comic.format) }}">
+        <img src="{{ url_for(comic.id+'.static', filename=page.id+'.'+comic.format) }}">
     </div>
     
     {% if prev %}
-        <a href="{{ url_for('page', comic_id=comic.identifier, page=prev) }}">prev</a>
+        <a href="{{ url_for('page', comic_id=comic.id, page_id=prev.id) }}">prev</a>
     {% endif %}
     &bull;
     {% if next %}
-        <a href="{{ url_for('page', comic_id=comic.identifier, page=next) }}">next</a>
+        <a href="{{ url_for('page', comic_id=comic.id, page_id=next.id) }}">next</a>
     {% endif %}
 
 {% endblock %}

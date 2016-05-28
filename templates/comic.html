@@ -7,7 +7,7 @@
     <h2>{{ comic.name }}</h2>
     <ul>
         {% for page in comic.pages %}
-            <li><a href="{{ url_for('page', comic_id=comic.identifier, page=page) }}">{{ page }}</a>
+            <li><a href="{{ url_for('page', comic_id=comic.id, page_id=page.id) }}">{{ page.name or page.id }}</a>
         {% endfor %}
     </ul>
 
