@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}official-licensed{% endblock %}</title>
+    <style>
+        body {text-align: center;}
+    </style>
+</head>
+<body>
+    <heading>
+        <h1><a href="{{url_for('index')}}">official-licensed</a></h1>
+    </heading>
+    
+    <section class="content">
+        {% block content %}{% endblock %}
+    </section>
+    
+</body>
+</html>
+

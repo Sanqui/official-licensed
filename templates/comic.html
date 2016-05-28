@@ -1,0 +1,14 @@
+{% extends "_base.html" %}
+
+{% block title %}{{ comic.name }}{% endblock %}
+
+{% block content %}
+
+    <h2>{{ comic.name }}</h2>
+    <ul>
+        {% for page in comic.pages %}
+            <li><a href="{{ url_for('page', comic_id=comic.identifier, page=page) }}">{{ page }}</a>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

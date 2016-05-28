@@ -1,0 +1,14 @@
+{% extends "_base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+    <h2>Comics on this site</h2>
+    <ul>
+        {% for comic_id in g.comic_ids %}
+            <li><a href="{{ url_for('comic', comic_id=comic_id) }}">{{ g.comics[comic_id].name }}</a>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
