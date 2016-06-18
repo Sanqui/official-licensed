@@ -11,12 +11,27 @@
         <img src="{{ url_for(comic.id+'.static', filename=page.id+'.'+comic.format) }}">
     </div>
     
-    {% if prev %}
-        <a href="{{ url_for('page', comic_id=comic.id, page_id=prev.id) }}">prev</a>
-    {% endif %}
-    &bull;
-    {% if next %}
-        <a href="{{ url_for('page', comic_id=comic.id, page_id=next.id) }}">next</a>
-    {% endif %}
+    {% macro button(url, image, enabled=True) %}
+        {% if enabled %}
+            <a href="{{ url }}" class="button-link">
+                <img src="{{ url_for('static', filename='img/'+image+'.png') }}" alt="{{image}}">
+            </a>
+        {% else %}
+            <img src="{{ url_for('static', filename='img/'+image+'.png') }}" alt="{{image}}" class="button-disabled">
+        {% endif %}
+    {% endmacro %}
+    
+    
+    <div>
+        {{ button(url_for('page', comic_id=comic.id, page_id=comic.pages[0].id), "first", page.id != comic.pages[0].id) }}
+        {{ button(url_for('page', comic_id=comic.id, page_id=prev.id), "prev", prev) }}
+        {{ button(url_for('comic', comic_id=comic.id), "home") }}
+        {{ button(url_for('page', comic_id=comic.id, page_id=next.id), "next", next) }}
+        {{ button(url_for('page', comic_id=comic.id, page_id=comic.pages[-1].id), "last", page.id != comic.pages[-1].id) }}
+    </div>
+    
+    {{ button("", "mode", False) }}
+    {{ button("", "dex", False) }}
+    {{ button("", "airplane", False) }}
 
 {% endblock %}

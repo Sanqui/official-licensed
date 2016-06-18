@@ -3,3 +3,8 @@ body {
     background-color: yellow;
     background: url('/static/img/bg.png');
 }
+
+.page-image img {max-width: 600px;}
+
+.button-link {text-decoration: none; display: inline-block;}
+.button-disabled { opacity: 0.5; }

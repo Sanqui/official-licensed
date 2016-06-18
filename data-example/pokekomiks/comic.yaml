@@ -1,0 +1,14 @@
+id: pokekomiks
+name: Poké Komiks
+author: Behold3r
+language: cs
+date: "2015"
+comment: idk
+format: png
+
+pages:
+    - id: "cover"
+      name: Cover
+    - id: "000"
+    - id: "001"
+    - id: "002"
