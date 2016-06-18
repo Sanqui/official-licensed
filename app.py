@@ -1,22 +1,28 @@
 from flask import Flask, render_template, abort, g, Blueprint
+import werkzeug.utils
 import yaml
-
-data_dir = "data-example/"
 
 app = Flask(__name__)
 
-comic_ids = yaml.load(open(data_dir+"comics.yaml"))
+try:
+    app.config.from_object('config')
+except werkzeug.utils.ImportStringError:
+    print("No config present: using example config.")
+    app.config.from_object('config-example')
+
+comic_ids = yaml.load(open(app.config['DATA_DIR']+"comics.yaml"))
 comics = {}
 
 for comic_id in comic_ids:
-    comics[comic_id] = yaml.load(open(data_dir+comic_id+"/comic.yaml"))
-    blueprint = Blueprint(comic_id, __name__, static_url_path='/{}/img'.format(comic_id), static_folder=data_dir+comic_id+"/img")
+    comics[comic_id] = yaml.load(open(app.config['DATA_DIR']+comic_id+"/comic.yaml"))
+    blueprint = Blueprint(comic_id, __name__, static_url_path='/{}/img'.format(comic_id), static_folder=app.config['DATA_DIR']+comic_id+"/img")
     app.register_blueprint(blueprint)
 
 @app.before_request
 def before_request():
     g.comic_ids = comic_ids
     g.comics = comics
+    g.sitename = app.config['SITENAME']
 
 @app.route('/')
 def index():
