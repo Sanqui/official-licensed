@@ -4,11 +4,13 @@ import yaml
 
 app = Flask(__name__)
 
+
+app.config.from_object('config-example')
+
 try:
     app.config.from_object('config')
 except werkzeug.utils.ImportStringError:
     print("No config present: using example config.")
-    app.config.from_object('config-example')
 
 comic_ids = yaml.load(open(app.config['DATA_DIR']+"comics.yaml"))
 comics = {}
