@@ -61,4 +61,4 @@ def page(comic_id, page_id):
     return render_template("page.html", comic=comic, page=page, prev=prev, next=next)
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=8002)
+    app.run(host="0.0.0.0", port=8002, threaded=True)

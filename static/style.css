@@ -4,6 +4,26 @@ body {
     background: url('/static/img/bg.png');
 }
 
+.nearest {
+    image-rendering: -moz-crisp-edges; 
+    image-rendering: -o-crisp-edges; 
+    image-rendering: -webkit-optimize-contrast; 
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    -ms-interpolation-mode:nearest-neighbor;
+}
+
+.comic-page {display: inline-block;}
+
+ul.buttons {list-style: none; list-style-type: none;}
+ul.buttons, ul.buttons li {margin: 0; padding: 0;}
+ul.buttons li {display: inline-block;}
+.buttons-primary li {width: 50%;}
+.buttons-primary a {display: block; padding-top: 8px; padding-bottom: 8px;}
+
+.buttons a {transition: transform 0.1s;}
+.buttons a:hover { transform: scale(1.2);}
+
 .page-image img {max-width: 600px;}
 
 .button-link {text-decoration: none; display: inline-block;}
