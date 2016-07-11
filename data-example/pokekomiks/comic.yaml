@@ -9,6 +9,7 @@ format: png
 pages:
     - id: "cover"
       name: Cover
+      solo: true
     - id: "000"
     - id: "001"
     - id: "002"

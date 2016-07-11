@@ -22,9 +22,12 @@ ul.buttons li {display: inline-block;}
 .buttons-primary a {display: block; padding-top: 8px; padding-bottom: 8px;}
 
 .buttons a {transition: transform 0.1s;}
-.buttons a:hover { transform: scale(1.2);}
+.buttons a:hover { /*transform: scale(1.2);*/}
+.buttons a:active { /*transform: scale(1.3);*/}
 
 .page-image img {max-width: 600px;}
 
 .button-link {text-decoration: none; display: inline-block;}
 .button-disabled { opacity: 0.5; }
+
+.debug {display: inline-block; background: red; opacity: 0.7; padding: 8px; float: right;}

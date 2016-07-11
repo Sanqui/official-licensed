@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{{ g.sitename }}{% endblock %}</title>
-    <link href="/static/style.css" rel="stylesheet">
+    <link href="{{url_for('static', filename='style.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='favicon.ico')}}" rel="shortcut icon">
 </head>
 <body>
     <heading>
-        <h1><a href="{{url_for('index')}}">{{ g.sitename }}</a></h1>
+        {% if g.debug %}
+            <div class="debug">DEBUG</div>
+        {% endif %}
+        <h1><a href="{{url_for('index')}}"><img src="{{url_for("static", filename="img/rattata-logo.png")}}"></a></h1>
     </heading>
     
     <section class="content">
