@@ -35,6 +35,8 @@ ul.buttons li {display: inline-block;}
 /*.hide_logo {position: absolute; left: 0; top: 0; width: 25%; max-width: 497px;}*/
 .hide_logo {display: none;}
 
+.page-icon-list li { list-style: none; }
+
 .debug {position: absolute; background: red; opacity: 0.7; padding: 8px; right: 0; top: 0;}
 
 .comics li {list-style: none;}

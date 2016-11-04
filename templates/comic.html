@@ -1,14 +1,36 @@
 {% extends "_base.html" %}
 
+{% set hide_logo = True %}
+
 {% block title %}{{ comic.name }}{% endblock %}
 
 {% block content %}
 
-    <h2>{{ comic.name }}</h2>
-    <ul>
-        {% for page in comic.pages %}
-            <li><a href="{{ url_for('page', comic_id=comic.id, page_id=page.id) }}">{{ page.name or page.id }}</a>
-        {% endfor %}
-    </ul>
+    <h2>
+        <a href="{{ url_for('comic', comic_id=comic.id) }}">
+            <img src="{{ url_for(comic.id+'.static', filename='_logo.png') }}">
+        </a>
+    </h2>
+    {% if comic['page-icons'] %}
+        <ul class="page-list page-icon-list">
+            {% for page in comic.pages %}
+                <li>
+                    <a href="{{ url_for('page', comic_id=comic.id, page_id=page.id) }}">
+                        <img src="{{ url_for(comic.id+'.static', filename=page.id+'-icon.'+comic.format) }}"></img>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <ul class="page-list">
+            {% for page in comic.pages %}
+                <li>
+                    <a href="{{ url_for('page', comic_id=comic.id, page_id=page.id) }}">
+                        {{ page.name or page.id }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 
 {% endblock %}
