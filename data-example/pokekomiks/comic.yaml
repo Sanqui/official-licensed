@@ -5,11 +5,14 @@ language: cs
 date: "2015"
 comment: idk
 format: png
+page-layout: book
+page-names: false
 
 pages:
     - id: "cover"
       name: Cover
-      solo: true
+      position: solo
     - id: "000"
+      position: right
     - id: "001"
     - id: "002"

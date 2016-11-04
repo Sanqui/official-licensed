@@ -1,7 +1,7 @@
 from flask import Flask, render_template, abort, g, Blueprint
 import werkzeug.utils
 import yaml
-form enum import Enum
+from enum import Enum
 
 app = Flask(__name__)
 
@@ -40,8 +40,8 @@ def get_page_by_id(comic, page_id):
 
 def get_page_physical_location(comic, page_id):
     current = None
-    for i, p in enumerate(comic['pages']):
-        if comic['pages'] == 
+    #for i, p in enumerate(comic['pages']):
+    #    if comic['pages'] == 
 
 @app.before_request
 def before_request():
@@ -72,10 +72,13 @@ def page(comic_id, page_id, page2_id=None):
     
     double = False
     pages = []
-    pages.append(get_page_by_id(comic, page_id)
+    pages.append(get_page_by_id(comic, page_id))
     if page2_id:
         pages.append(get_page_by_id(comic, page2_id))
         double = True
+    
+    page = pages[0][1]
+    pagei = pages[0][0]
     
     if not page: abort(404)
     
@@ -85,4 +88,4 @@ def page(comic_id, page_id, page2_id=None):
     return render_template("page.html", comic=comic, page=page, prev=prev, next=next)
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=8002, threaded=True)
+    app.run(host="0.0.0.0", port=8002, threaded=True, debug=True)

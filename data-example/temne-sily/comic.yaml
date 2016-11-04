@@ -5,11 +5,14 @@ language: cs
 date: "2012"
 comment: idk
 format: png
+page-layout: single
+page-names: true
 
 pages:
     - id: "001"
       name: První díl
       date: "2012"
+      comment: "Tohle je dobrá stránka"
     - id: "002"
     - id: "003"
     - id: "004"

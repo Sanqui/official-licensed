@@ -11,12 +11,21 @@
         {% if g.debug %}
             <div class="debug">DEBUG</div>
         {% endif %}
-        <h1><a href="{{url_for('index')}}"><img src="{{url_for("static", filename="img/rattata-logo.png")}}"></a></h1>
+        <h1 class="logo {% if hide_logo %}hide_logo{% endif %}">
+            <a href="{{url_for('index')}}"><img src="{{url_for("static", filename="img/rattata-logo.png")}}"></a>
+        </h1>
     </heading>
     
     <section class="content">
         {% block content %}{% endblock %}
     </section>
+    
+    <footer>
+        <p>blah blah blah
+        {% if hide_logo %}
+            <a href="{{url_for('index')}}" class="footer-logo"><img src="{{url_for("static", filename="img/rattata-logo.png")}}"></a>
+        {% endif %}
+    </footer>
     
 </body>
 </html>
