@@ -5,9 +5,9 @@ language: cs
 date: "2012"
 comment: idk
 format: png
-page-layout: single
-page-names: true
-page-icons: false
+page_layout: single
+page_names: true
+page_icons: false
 
 pages:
     - id: "001"

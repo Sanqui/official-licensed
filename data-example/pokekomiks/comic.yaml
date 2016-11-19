@@ -5,9 +5,9 @@ language: cs
 date: "2015"
 comment: idk
 format: png
-page-layout: book
-page-names: false
-page-icons: true
+page_layout: book
+page_names: false
+page_icons: true
 
 pages:
     - id: "cover"
